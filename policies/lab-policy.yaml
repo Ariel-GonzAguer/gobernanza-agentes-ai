@@ -1,0 +1,42 @@
+# Política del laboratorio: qué tool calls pueden ejecutarse.
+# Las reglas se ordenan por prioridad descendente; la primera que coincide decide.
+# Si ninguna regla coincide, la acción se deniega (default-deny).
+version: 1
+rules:
+  - id: leer-archivos
+    description: Lectura de archivos del mundo simulado.
+    tool: files.read
+    effect: allow
+    priority: 50
+
+  - id: buscar-en-web
+    description: Búsqueda en la web simulada.
+    tool: search.web
+    effect: allow
+    priority: 50
+
+  - id: prohibido-vaciar-tablas
+    description: Acción destructiva sobre datos, nunca permitida.
+    tool: db.drop
+    effect: deny
+    priority: 100
+
+  - id: correo-interno-permitido
+    description: Avisos al equipo interno.
+    tool: email.send
+    effect: allow
+    priority: 60
+    conditions:
+      - op: '=='
+        path: args.to
+        value: equipo@example.com
+
+  - id: correo-externo-revisado
+    description: Todo correo que salga del equipo requiere aprobación humana.
+    tool: email.send
+    effect: require_approval
+    priority: 90
+    conditions:
+      - op: '!='
+        path: args.to
+        value: equipo@example.com
