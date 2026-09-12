@@ -45,3 +45,7 @@ Requisitos: Node.js 20 o posterior y pnpm.
 ## Alcance
 
 El laboratorio enseña controles técnicos de runtime. No afirma reproducir todo un programa empresarial de gobernanza ni todo el Agent Governance Toolkit. Las referencias se revisaron el 2026-09-12 y están fijadas por versión o fecha en el plan para que cambios externos no alteren silenciosamente el temario.
+
+## Licencia
+
+El contenido original de este repositorio se distribuye bajo la licencia [MIT + Commons Clause](./LICENSE). Los materiales de terceros mencionados o incluidos mantienen sus respectivas licencias.
