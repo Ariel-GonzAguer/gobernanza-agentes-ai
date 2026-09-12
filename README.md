@@ -4,7 +4,7 @@ Laboratorio guiado para aprender **gobernanza técnica de agentes de IA** constr
 
 El proyecto implementa un subconjunto didáctico inspirado en herramientas y estándares reales: políticas deterministas, identidad, límites, aprobaciones y auditoría. También introduce la gobernanza organizacional necesaria para decidir qué riesgos controlar y quién responde por ellos.
 
-## Empieza aquí
+## Empieza acá
 
 Sigue [`START-HERE.md`](./START-HERE.md). El primer recorrido verifica el código de referencia, explica el agente de juguete y separa claramente el material generado de tu propio progreso.
 
