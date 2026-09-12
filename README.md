@@ -1,31 +1,44 @@
-# governace-ai-agents
+# governance-ai-agents
 
-Laboratorio de aprendizaje: **gobernanza de agentes de IA**, construido por fases y 100% TypeScript.
+Laboratorio guiado para aprender **gobernanza técnica de agentes de IA** construyendo controles de ejecución en TypeScript.
 
-La meta es entender por dentro cómo se controla a un agente autónomo: políticas deterministas, identidad, guardrails, auditoría tamper-evident y supervisión humana — reconstruyendo el estado del arte ([Agent Governance Toolkit](https://github.com/microsoft/agent-governance-toolkit)) pieza por pieza.
+El proyecto implementa un subconjunto didáctico inspirado en herramientas y estándares reales: políticas deterministas, identidad, límites, aprobaciones y auditoría. También introduce la gobernanza organizacional necesaria para decidir qué riesgos controlar y quién responde por ellos.
 
-- **Plan completo**: [`PLAN.md`](./PLAN.md)
-- **Estado de las fases**: [`docs/fases.md`](./docs/fases.md)
-- **Apuntes de conceptos**: [`docs/conceptos.md`](./docs/conceptos.md)
-- **Mentor del laboratorio** (prompt portable, agnóstico al harness): [`agents/governance-mentor.md`](./agents/governance-mentor.md)
+## Empieza aquí
 
-## Requisitos
+Sigue [`START-HERE.md`](./START-HERE.md). El primer recorrido verifica el código de referencia, explica el agente de juguete y separa claramente el material generado de tu propio progreso.
 
-- Node ≥ 20 (probado con v24)
-- pnpm
+Estado actual:
+
+- La Fase 0 contiene una implementación de referencia que todavía debes recorrer.
+- La Fase 1 tiene especificación y tests de aceptación; su implementación es tu ejercicio.
+- La suite completa está roja a propósito hasta implementar la Fase 1.
 
 ## Comandos
 
-```bash
-pnpm install      # dependencias
-pnpm test         # tests (Vitest)
-pnpm typecheck    # TypeScript en modo strict
-pnpm demo         # escenario ejecutable del agente
-```
+| Comando | Resultado esperado ahora |
+|---|---|
+| `pnpm install` | Instala las dependencias. |
+| `pnpm verify:baseline` | Verde: 11 tests, typecheck del código de referencia y demo. |
+| `pnpm test:phase1` | Rojo: muestra el contrato todavía pendiente. |
+| `pnpm verify` | Rojo hasta terminar la fase actual; después debe quedar verde. |
+| `pnpm test:watch` | Ejecuta Vitest en modo interactivo. |
 
-## Estructura
+Requisitos: Node.js 20 o posterior y pnpm.
 
-- `src/agent/` — el agente de juguete: modelo determinista, tools simuladas y loop de tool calls.
-- `src/governance/` — la capa de gobernanza (se construye en las fases 1–6).
-- `src/tests/` — tests en español, describen comportamiento (no fases).
-- `docs/` — apuntes y bitácora.
+## Mapa
+
+- [`PLAN.md`](./PLAN.md) — alcance, decisiones y fases; es la copia canónica del plan.
+- [`docs/fases.md`](./docs/fases.md) — estado del material y progreso del estudiante.
+- [`docs/conceptos.md`](./docs/conceptos.md) — modelo mental y limitaciones de cada control.
+- [`agents/governance-mentor.md`](./agents/governance-mentor.md) — contrato del mentor.
+- `src/agent/` — agente determinista y tools simuladas.
+- `src/governance/` — carpeta que construirás durante las fases 1–6.
+- `src/tests/` — tests de referencia y de aceptación.
+- `policies/` — políticas declarativas del laboratorio.
+
+`opencode.json` registra el mentor como agente principal de OpenCode y carga directamente la fuente de verdad. `.commandcode/` ofrece una integración secundaria con Command Code.
+
+## Alcance
+
+El laboratorio enseña controles técnicos de runtime. No afirma reproducir todo un programa empresarial de gobernanza ni todo el Agent Governance Toolkit. Las referencias se revisaron el 2026-09-12 y están fijadas por versión o fecha en el plan para que cambios externos no alteren silenciosamente el temario.
