@@ -32,7 +32,7 @@ Las referencias externas cambian. Este temario toma como baseline NIST AI RMF 1.
 
 | Tema             | Decisión                                        | Razón                                                                                  |
 | ---------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Runtime          | Node ≥ 20 (tienes v24.18.0) + TypeScript strict | strict con `noUncheckedIndexedAccess` y `exactOptionalPropertyTypes`                   |
+| Runtime          | Node ≥ 20 + TypeScript strict                   | strict con `noUncheckedIndexedAccess` y `exactOptionalPropertyTypes`                   |
 | Deps runtime     | `zod` + `yaml`                                  | Zod acordado; YAML es el formato de políticas del ecosistema (AGT usa YAML/Rego/Cedar) |
 | Deps dev         | `typescript`, `vitest`, `tsx`, `@types/node`    | mínimo indispensable                                                                   |
 | Cripto           | `node:crypto`                                   | Ed25519 y SHA-256 nativos: cero dependencias (fases 2 y 4)                             |

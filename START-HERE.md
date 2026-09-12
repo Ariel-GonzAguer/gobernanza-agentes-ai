@@ -29,6 +29,8 @@ En 30–45 minutos podrás explicar dónde una tool call pasa de propuesta a efe
 
 4. Lee, en este orden:
 
+   - `src/agent/README.md`
+   - `src/agent/tools` → primero el `README.md` y luego todos los archivos de la carpeta.
    - `src/agent/types.ts`
    - `src/agent/model.ts`
    - `src/agent/tools/registry.ts`
@@ -37,10 +39,10 @@ En 30–45 minutos podrás explicar dónde una tool call pasa de propuesta a efe
 
 5. Responde con tus palabras:
 
-   - ¿Qué parte propone una acción y qué parte produce el efecto? → la acción es propuesta por el Modelo, usando el método next() con ModelStep. Y es ejecutada en agent-loop usando runTool. 
-   - ¿Qué garantiza `prepareToolCall` antes de una decisión de política? → que la tool exista y que los argumentos son válidos.
-   - ¿En qué línea conceptual debe entrar un gate para impedir `db.drop`? →  después de prepareToolCall y antes de prepared.execute(...). El registro prepara, el gate decide, la tool ejecuta.
-   - ¿Por qué el modelo no debe declarar su propio rol dentro de `args`? → Porque podría hacerse pasar por el user/humano y aplicar excepciones a las políticas.
+   - ¿Qué parte propone una acción y qué parte produce el efecto?
+   - ¿Qué garantiza `prepareToolCall` antes de una decisión de política?
+   - ¿En qué línea conceptual debe entrar un gate para impedir `db.drop`?
+   - ¿Por qué el modelo no debe declarar su propio rol dentro de `args`?
 
 6. Cuando puedas responderlas, marca el recorrido de la Fase 0 en `docs/fases.md` y abre `docs/fase-1-policy-engine.md`.
 
@@ -56,20 +58,12 @@ En 30–45 minutos podrás explicar dónde una tool call pasa de propuesta a efe
 
 `opencode.json` selecciona `governance-mentor` como agente principal del proyecto. Puedes empezar con: “Ya recorrí la Fase 0 y mi respuesta a la segunda pregunta es…”. El mentor te hará avanzar con preguntas y pistas escalonadas, sin sustituir tu práctica.
 
-
-- Proponer: lo hace el modelo. Se refiere a qué tool y argumentos usar.
-- Validar: se hace con el schema y una función prepareToolCall. Verifica que la llamada a la tool sea válida. No ejecuta nada.
-- Autorizar: se defina con la politica y contexto. Define si una tool se ejecuta o no, aunque sea válida.
-- Ejecutar: lo hace el runtime, invocando prepared.execute(world), y la tool produce el efecto.
-
-*El modelo solo propone. **Nunca** debe tener autoridad para ejecutar directamente.*
-
 ## Señales de que puedes empezar la Fase 1
 
-- [x] `pnpm verify:baseline` termina en verde.
-- [x] Completaste la ficha de contexto y tres escenarios de abuso.
-- [x] Entiendes la diferencia entre proponer, validar, autorizar y ejecutar.
-- [x] Sabes que una política recibe argumentos canónicos, no la entrada cruda del modelo.
-- [x] Puedes localizar el único punto de ejecución de una tool.
+- [ ] `pnpm verify:baseline` termina en verde.
+- [ ] Completaste la ficha de contexto y tres escenarios de abuso.
+- [ ] Entiendes la diferencia entre proponer, validar, autorizar y ejecutar.
+- [ ] Sabes que una política recibe argumentos canónicos, no la entrada cruda del modelo.
+- [ ] Puedes localizar el único punto de ejecución de una tool.
 
 Siguiente paso: [`docs/fase-1-policy-engine.md`](./docs/fase-1-policy-engine.md).

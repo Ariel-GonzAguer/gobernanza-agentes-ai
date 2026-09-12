@@ -1,14 +1,14 @@
 # Estado del laboratorio
 
-**Siguiente paso del estudiante**: leer la guía de la Fase 1 y ejecutar su contrato rojo mediante [`fase-1-policy-engine.md`](./fase-1-policy-engine.md).
-**Rama**: `feature/governance-layer` · **Plan canónico**: [`PLAN.md`](../PLAN.md).
+**Siguiente paso del estudiante**: completar la Fase 0A y recorrer la implementación de referencia mediante [`START-HERE.md`](../START-HERE.md).
+**Rama inicial**: `main` · **Rama de ejercicios sugerida**: `feature/governance-layer` · **Plan canónico**: [`PLAN.md`](../PLAN.md).
 
 ## Material y aprendizaje
 
 | #   | Fase                     | Estado del material                           | Progreso del estudiante |
 | --- | ------------------------ | --------------------------------------------- | ----------------------- |
-| 0A  | Contexto y threat model  | listo                                         | terminado               |
-| 0   | Agente de juguete        | código de referencia listo                    | terminado             |
+| 0A  | Contexto y threat model  | listo                                         | no iniciado             |
+| 0   | Agente de juguete        | código de referencia listo                    | no iniciado             |
 | 1   | Policy engine            | guía y tests listos; implementación pendiente | no iniciado             |
 | 2   | Identidad y confianza    | guía y tests publicados; implementación pendiente | no iniciado          |
 | 3   | Guardrails I/O           | guía y tests publicados; implementación pendiente | no iniciado          |

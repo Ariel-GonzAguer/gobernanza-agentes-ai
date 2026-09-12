@@ -10,8 +10,8 @@ Sigue [`START-HERE.md`](./START-HERE.md). El primer recorrido verifica el códig
 
 Estado actual:
 
-- La Fase 0 contiene una implementación de referencia ya recorrida.
-- La Fase 1 es la fase activa y su contrato está rojo a propósito hasta implementarla.
+- La Fase 0 contiene una implementación de referencia lista para recorrer.
+- La Fase 1 tiene su contrato publicado y queda roja a propósito hasta que el estudiante complete el recorrido inicial y la implemente.
 - Las guías y contratos de las Fases 2–6 ya están publicados, pero sus tests se activan por separado.
 
 ## Comandos
