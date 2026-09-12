@@ -7,6 +7,7 @@ La meta es entender por dentro cómo se controla a un agente autónomo: polític
 - **Plan completo**: [`PLAN.md`](./PLAN.md)
 - **Estado de las fases**: [`docs/fases.md`](./docs/fases.md)
 - **Apuntes de conceptos**: [`docs/conceptos.md`](./docs/conceptos.md)
+- **Mentor del laboratorio** (prompt portable, agnóstico al harness): [`agents/governance-mentor.md`](./agents/governance-mentor.md)
 
 ## Requisitos
 

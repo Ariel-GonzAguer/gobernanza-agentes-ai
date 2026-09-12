@@ -1,17 +1,18 @@
 # Gobernanza de Agentes de IA — Plan del laboratorio (TypeScript)
 
-**Proyecto**: `governace-ai-agents`
-**Ruta**: `C:\Users\arieg\OneDrive\Escritorio\Ariel\projects\2026-proyectos\experimental-y-otros\governace-ai-agents`
+**Proyecto**: `governance-ai-agents`
+**Ruta**: `C:\Users\arieg\OneDrive\Escritorio\Ariel\projects\2026-proyectos\experimental-y-otros\governance-ai-agents`
 **Fecha**: 2026-09-12 · **Copia canónica**: `~/.commandcode/plans/gobernanza-agentes-ia-lab.md`
 
-> Nota: la carpeta se llama `governace-ai-agents` (así la creaste; parece typo de "governance"). El plan la usa tal cual — renombrarla sigue siendo barato mientras no haya remoto ni referencias externas.
+## Cómo se aprende (modelo de mentoría)
 
-## Cómo se aprende
-
-- Proyecto por fases, **estrictamente secuencial**: una fase se cierra (tests verdes + typecheck + commit) antes de abrir la siguiente.
-- Cada fase tiene entregable mínimo, tests propios y demo ejecutable.
+- **Tú implementas el código de las fases**; el asistente no escribe la capa de gobernanza.
+- Por fase, el asistente prepara: objetivos de aprendizaje, conceptos y referencias, especificación (tipos, firmas y JSDoc), tests de aceptación (Vitest) y una guía de ejercicio en `docs/fase-N-*.md` con pistas escalonadas.
+- Ciclo de cada fase: leer conceptos → implementar hasta que los tests de aceptación pasen → revisión con feedback → cierre con commit.
+- Proyecto por fases, **estrictamente secuencial**: una fase se cierra (tests verdes + typecheck) antes de abrir la siguiente.
 - Un **commit por fase cerrada** en la rama `feature/governance-layer` (`main` guarda el scaffold).
-- Los apuntes viven en `docs/conceptos.md`; la bitácora de fases en `docs/fases.md`.
+- Fase 0 (agente de juguete): implementada por el asistente y **conservada como referencia resuelta**.
+- Los apuntes viven en `docs/conceptos.md`; la bitácora en `docs/fases.md`; el mentor portátil en `agents/governance-mentor.md`.
 - Todo TypeScript: cero Python en el laboratorio.
 
 ## Decisiones de setup
@@ -29,7 +30,7 @@
 ## Estructura objetivo
 
 ```
-governace-ai-agents/
+governance-ai-agents/
 ├─ PLAN.md                  # este plan (para retomar cualquier día)
 ├─ README.md                # qué es y cómo correrlo
 ├─ package.json / tsconfig.json / vitest.config.ts
@@ -108,7 +109,7 @@ governace-ai-agents/
 ## Protocolo para retomar
 
 1. Lee `docs/fases.md` (estado actual) y este `PLAN.md`.
-2. Pide: "continuemos con la Fase N".
+2. La fase pendiente trae su guía en `docs/fase-N-*.md`: **tú implementas** y pides pistas o revisión cuando quieras.
 3. Al cerrar cada fase: `pnpm test` + `pnpm typecheck` verdes → commit → actualizar `docs/fases.md`.
 
 ## Riesgos y mitigaciones
