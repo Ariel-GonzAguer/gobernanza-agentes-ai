@@ -1,13 +1,13 @@
 # Fases — bitácora del laboratorio
 
-**Estado actual**: Fase 0 (scaffold + agente de juguete) — en curso.
+**Estado actual**: Fase 0 cerrada (2026-09-12) — siguiente: Fase 1 (policy engine).
 **Rama**: `feature/governance-layer` · **Plan**: ver [`PLAN.md`](../PLAN.md).
 
 ## Tabla de fases
 
 | # | Fase | Entregable | Estado |
 |---|------|-----------|--------|
-| 0 | Scaffold + agente de juguete | FakeModel, tools simuladas, loop, demo | en curso |
+| 0 | Scaffold + agente de juguete | FakeModel, tools simuladas, loop, demo | cerrada |
 | 1 | Policy engine | políticas YAML, default-deny, gate en el loop | pendiente |
 | 2 | Identidad y confianza | Ed25519 + DID, capacidades, delegación, trust score | pendiente |
 | 3 | Guardrails I/O | sanitize/validate, anti-injection, PII | pendiente |
@@ -17,7 +17,7 @@
 
 ## Bitácora
 
-- **2026-09-12** — Proyecto creado. Fase 0 en curso: scaffold, agente de juguete y tests.
+- **2026-09-12** — Proyecto creado y Fase 0 cerrada: scaffold, agente de juguete, 10 tests en verde y demo ejecutable.
 
 ## Cómo retomar
 
