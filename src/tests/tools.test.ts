@@ -1,7 +1,7 @@
 // ─── Tests de las tools simuladas ───
 
 import { describe, expect, test } from 'vitest';
-import { runTool } from '../agent/tools/registry';
+import { prepareToolCall, runTool } from '../agent/tools/registry';
 import { createWorld } from '../agent/tools/world';
 
 describe('tools simuladas', () => {
@@ -63,5 +63,23 @@ describe('tools simuladas', () => {
 
     expect(result.ok).toBe(false);
     expect(result.error).toContain('Argumentos inválidos');
+  });
+
+  test('prepara una call canónica y descarta campos ajenos al esquema', async () => {
+    const world = createWorld();
+    const preparation = prepareToolCall({
+      id: 'call-1',
+      name: 'files.write',
+      args: { path: 'informe.md', content: 'hola', rolAutodeclarado: 'admin' },
+    });
+
+    expect(preparation.ok).toBe(true);
+    if (!preparation.ok) return;
+
+    expect(preparation.prepared.call.args).toEqual({ path: 'informe.md', content: 'hola' });
+
+    const result = await preparation.prepared.execute(world);
+    expect(result.ok).toBe(true);
+    expect(world.files.get('informe.md')).toBe('hola');
   });
 });

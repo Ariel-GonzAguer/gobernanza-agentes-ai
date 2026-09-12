@@ -1,5 +1,5 @@
 {
-  "name": "governace-ai-agents",
+  "name": "governance-ai-agents",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,8 +8,13 @@
   "scripts": {
     "demo": "tsx src/demo/run-demo.ts",
     "test": "vitest run",
+    "test:baseline": "vitest run src/tests/tools.test.ts src/tests/agent-loop.test.ts",
+    "test:phase1": "vitest run src/tests/policy.test.ts src/tests/agent-gate.test.ts",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "typecheck:baseline": "tsc --noEmit -p tsconfig.baseline.json",
+    "verify": "pnpm test && pnpm typecheck",
+    "verify:baseline": "pnpm test:baseline && pnpm typecheck:baseline && pnpm demo"
   },
   "engines": {
     "node": ">=20"

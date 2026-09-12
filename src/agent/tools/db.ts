@@ -9,12 +9,11 @@ export const dbTableSchema = z.object({
 });
 
 /** Consulta las filas de la tabla simulada. */
-export const dbQueryTool: ToolDefinition = {
+export const dbQueryTool: ToolDefinition<z.infer<typeof dbTableSchema>> = {
   name: 'db.query',
   description: 'Consulta las filas de la tabla simulada.',
   schema: dbTableSchema,
-  execute(args, world): ToolResult {
-    const { table } = dbTableSchema.parse(args);
+  execute({ table }, world): ToolResult {
 
     if (table !== world.db.table) {
       return { ok: false, error: `La tabla "${table}" no existe.` };
@@ -25,12 +24,11 @@ export const dbQueryTool: ToolDefinition = {
 };
 
 /** Vacía la tabla simulada. Acción destructiva a propósito, para las demos de gobernanza. */
-export const dbDropTool: ToolDefinition = {
+export const dbDropTool: ToolDefinition<z.infer<typeof dbTableSchema>> = {
   name: 'db.drop',
   description: 'Vacía la tabla simulada (acción destructiva).',
   schema: dbTableSchema,
-  execute(args, world): ToolResult {
-    const { table } = dbTableSchema.parse(args);
+  execute({ table }, world): ToolResult {
 
     if (table !== world.db.table) {
       return { ok: false, error: `La tabla "${table}" no existe.` };

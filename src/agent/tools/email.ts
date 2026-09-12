@@ -11,12 +11,11 @@ export const emailSendSchema = z.object({
 });
 
 /** Envía un correo en el mundo simulado (queda registrado, no sale a Internet). */
-export const emailSendTool: ToolDefinition = {
+export const emailSendTool: ToolDefinition<z.infer<typeof emailSendSchema>> = {
   name: 'email.send',
   description: 'Envía un correo simulado y lo registra en el mundo.',
   schema: emailSendSchema,
-  execute(args, world): ToolResult {
-    const { to, subject, body } = emailSendSchema.parse(args);
+  execute({ to, subject, body }, world): ToolResult {
     world.emails.push({ to, subject, body, sentAt: new Date().toISOString() });
     return { ok: true, output: { to, subject } };
   },

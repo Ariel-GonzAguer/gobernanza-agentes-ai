@@ -9,12 +9,11 @@ export const searchSchema = z.object({
 });
 
 /** Busca en una web simulada y devuelve resultados de ejemplo. */
-export const searchWebTool: ToolDefinition = {
+export const searchWebTool: ToolDefinition<z.infer<typeof searchSchema>> = {
   name: 'search.web',
   description: 'Busca en la web simulada y devuelve resultados de ejemplo.',
   schema: searchSchema,
-  execute(args): ToolResult {
-    const { query } = searchSchema.parse(args);
+  execute({ query }): ToolResult {
     return {
       ok: true,
       output: {

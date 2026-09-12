@@ -16,4 +16,4 @@ Tools que actúan sobre un mundo simulado en memoria (sin efectos reales). `db.d
 1. Crea el archivo con su esquema Zod y su objeto `ToolDefinition`.
 2. Regístrala en `registry.ts`.
 
-La validación de argumentos vive en `runTool` (con los esquemas de cada tool): argumentos inválidos nunca llegan a ejecutarse.
+La validación vive en `prepareToolCall`. El registro produce argumentos canónicos y una función `prepared.execute` que reutiliza exactamente esos valores; argumentos inválidos nunca llegan al executor. `runTool` conserva la API directa y delega en esa misma preparación.

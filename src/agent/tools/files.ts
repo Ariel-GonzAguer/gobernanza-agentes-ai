@@ -15,12 +15,11 @@ export const filesWriteSchema = z.object({
 });
 
 /** Lee un archivo del mundo simulado. */
-export const filesReadTool: ToolDefinition = {
+export const filesReadTool: ToolDefinition<z.infer<typeof filesReadSchema>> = {
   name: 'files.read',
   description: 'Lee un archivo del mundo simulado.',
   schema: filesReadSchema,
-  execute(args, world): ToolResult {
-    const { path } = filesReadSchema.parse(args);
+  execute({ path }, world): ToolResult {
     const content = world.files.get(path);
 
     if (content === undefined) {
@@ -32,12 +31,11 @@ export const filesReadTool: ToolDefinition = {
 };
 
 /** Escribe un archivo en el mundo simulado. */
-export const filesWriteTool: ToolDefinition = {
+export const filesWriteTool: ToolDefinition<z.infer<typeof filesWriteSchema>> = {
   name: 'files.write',
   description: 'Escribe un archivo en el mundo simulado.',
   schema: filesWriteSchema,
-  execute(args, world): ToolResult {
-    const { path, content } = filesWriteSchema.parse(args);
+  execute({ path, content }, world): ToolResult {
     world.files.set(path, content);
     return { ok: true, output: { path, bytes: content.length } };
   },

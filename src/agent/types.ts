@@ -41,18 +41,26 @@ export interface ToolResult {
   error?: string;
 }
 
-/** Definición de una tool: nombre, esquema Zod y ejecución. */
-export interface ToolDefinition {
+/** Definición de una tool: nombre, esquema Zod y ejecución tipada. */
+export interface ToolDefinition<TArgs extends Record<string, unknown> = Record<string, unknown>> {
   name: string;
   description: string;
-  schema: ZodType;
+  schema: ZodType<TArgs>;
   /**
-   * Ejecuta la tool sobre el mundo simulado.
-   * @param args - Argumentos sin validar; cada tool valida con su propio schema.
+   * Ejecuta la tool sobre el mundo simulado con argumentos ya validados.
+   * @param args - Argumentos validados y normalizados por el registro.
    * @param world - Estado simulado sobre el que opera la tool.
    * @returns Resultado de la ejecución.
    */
-  execute(args: unknown, world: SimulatedWorld): Promise<ToolResult> | ToolResult;
+  execute(args: TArgs, world: SimulatedWorld): Promise<ToolResult> | ToolResult;
+}
+
+/** Tool call resuelta y validada, lista para autorizarse y ejecutarse. */
+export interface PreparedToolCall {
+  /** Call canónica: no contiene campos descartados o transformaciones pendientes. */
+  call: ToolCall;
+  /** Ejecuta exactamente los argumentos presentes en `call`. */
+  execute(world: SimulatedWorld): Promise<ToolResult>;
 }
 
 // ─── Mundo simulado ───
