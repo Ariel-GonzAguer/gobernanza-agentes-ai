@@ -8,10 +8,10 @@ La gobernanza organizacional decide propósito, responsables, riesgos aceptables
 
 Este proyecto profundiza en el segundo nivel, sin presentar sus controles como un programa completo de gobernanza.
 
-| Nivel | Preguntas principales | Ejemplo de evidencia |
-|---|---|---|
+| Nivel          | Preguntas principales                                                    | Ejemplo de evidencia                                                  |
+| -------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
 | Organizacional | ¿Para qué existe el agente? ¿Quién acepta el riesgo? ¿Cuándo se detiene? | ficha de contexto, risk register, propietario y proceso de incidentes |
-| Runtime | ¿Puede ejecutar esta acción? ¿Bajo qué límites? ¿Qué quedó registrado? | decisión de política, aprobación ligada, audit log |
+| Runtime        | ¿Puede ejecutar esta acción? ¿Bajo qué límites? ¿Qué quedó registrado?   | decisión de política, aprobación ligada, audit log                    |
 
 NIST AI RMF organiza el trabajo en GOVERN, MAP, MEASURE y MANAGE. GOVERN es transversal; el código por sí solo no satisface esas cuatro funciones.
 
@@ -34,14 +34,14 @@ La política y la tool deben observar la misma representación. Si se autoriza l
 
 ## Capas técnicas
 
-| Capa | Qué controla | En este proyecto |
-|---|---|---|
-| Preparación | tool conocida y argumentos canónicos | Fase 0 |
-| Política | allow / deny / require_approval antes de ejecutar | Fase 1 |
-| Identidad y confianza | clave que firma, capacidades y señal de confianza | Fase 2 |
-| Guardrails I/O | separación de datos/instrucciones, límites, PII y validación | Fase 3 |
-| Evidencia | registro append-only y verificación de integridad | Fase 4 |
-| Límites y humanos | rate limits, presupuesto, circuit breaker y aprobaciones | Fase 5 |
+| Capa                  | Qué controla                                                 | En este proyecto |
+| --------------------- | ------------------------------------------------------------ | ---------------- |
+| Preparación           | tool conocida y argumentos canónicos                         | Fase 0           |
+| Política              | allow / deny / require_approval antes de ejecutar            | Fase 1           |
+| Identidad y confianza | clave que firma, capacidades y señal de confianza            | Fase 2           |
+| Guardrails I/O        | separación de datos/instrucciones, límites, PII y validación | Fase 3           |
+| Evidencia             | registro append-only y verificación de integridad            | Fase 4           |
+| Límites y humanos     | rate limits, presupuesto, circuit breaker y aprobaciones     | Fase 5           |
 
 El `GovernanceGate` integra las capas en la Fase 6.
 

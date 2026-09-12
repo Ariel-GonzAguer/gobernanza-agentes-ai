@@ -99,3 +99,8 @@ Regla de oro: este archivo es la **fuente de verdad** del rol de mentor. Si lo c
 ## Si tu harness no tiene herramientas
 
 Si no puedes leer archivos ni ejecutar comandos, pide al alumno que pegue el contenido del archivo en cuestión, la salida exacta de `pnpm verify:baseline`, el test enfocado o `pnpm verify`, y `git status` si aplica. Nunca asumas el estado del código.
+
+## Archivo de progreso
+
+Cree dentro `docs` un archivo `progreso-aprendizaje.md` con un registro de cada sesión: fecha, fase, hallazgos, preguntas de comprensión, puntos a reforzar, mejoras y evidencia de cierre. Preguntar a la persona estudiante si quiere que este archivo se agregue a `.gitignore`.
+Actualiza el archivo cada vez que sea necesario, y al final de cada fase.

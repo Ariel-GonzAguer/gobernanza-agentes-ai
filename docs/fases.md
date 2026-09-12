@@ -5,16 +5,16 @@
 
 ## Material y aprendizaje
 
-| # | Fase | Estado del material | Progreso del estudiante |
-|---|---|---|---|
-| 0A | Contexto y threat model | listo | no iniciado |
-| 0 | Agente de juguete | código de referencia listo | no iniciado |
-| 1 | Policy engine | guía y tests listos; implementación pendiente | no iniciado |
-| 2 | Identidad y confianza | planificada | no iniciado |
-| 3 | Guardrails I/O | planificada | no iniciado |
-| 4 | Auditoría | planificada | no iniciado |
-| 5 | Límites y HITL | planificada | no iniciado |
-| 6 | Integración y estándares | planificada | no iniciado |
+| #   | Fase                     | Estado del material                           | Progreso del estudiante |
+| --- | ------------------------ | --------------------------------------------- | ----------------------- |
+| 0A  | Contexto y threat model  | listo                                         | terminado               |
+| 0   | Agente de juguete        | código de referencia listo                    | terminado             |
+| 1   | Policy engine            | guía y tests listos; implementación pendiente | no iniciado             |
+| 2   | Identidad y confianza    | planificada                                   | no iniciado             |
+| 3   | Guardrails I/O           | planificada                                   | no iniciado             |
+| 4   | Auditoría                | planificada                                   | no iniciado             |
+| 5   | Límites y HITL           | planificada                                   | no iniciado             |
+| 6   | Integración y estándares | planificada                                   | no iniciado             |
 
 El estudiante actualiza solamente la última columna cuando haya realizado el recorrido o ejercicio correspondiente. “Material listo” no equivale a aprendizaje completado.
 
