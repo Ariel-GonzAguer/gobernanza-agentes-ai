@@ -2,7 +2,7 @@
 
 **Estado**: material publicado el 2026-09-12.
 **Modelo de trabajo**: tú implementas; el mentor explica, revisa y da pistas — no escribe `src/governance/` ni los tests.
-**Criterio de cierre**: `pnpm verify` verde + demo con `db.drop` denegado y un `email.send` en revisión.
+**Criterio de cierre**: `pnpm verify:phase1` verde + demo con `db.drop` denegado y un `email.send` en revisión.
 
 Antes de empezar, completa el recorrido de [`START-HERE.md`](../START-HERE.md) y confirma que `pnpm verify:baseline` está verde.
 
@@ -255,7 +255,8 @@ Hoy la suite está **roja a propósito** (los imports no existen todavía): es e
 ```bash
 pnpm verify:baseline  # debe seguir verde durante todo el ejercicio
 pnpm test:phase1      # contrato rojo → verde de esta fase
-pnpm verify           # cierre: suite completa + typecheck
+pnpm verify:phase1    # cierre enfocado de esta fase
+pnpm verify:all       # suite completa, solo cuando todas las fases estén implementadas
 ```
 
 ## Pistas escalonadas
@@ -310,7 +311,7 @@ Pide la pista **por bloque** cuando ya lo intentaste; el mentor sube de nivel so
 
 ## Cierre de la fase
 
-1. `pnpm verify` verde (sin tocar los tests de aceptación).
+1. `pnpm verify:phase1` verde (sin tocar los tests de aceptación).
 2. `pnpm demo:policy` mostrando los cuatro efectos esperados.
 3. Pídeme la revisión: repasamos código y auto-chequeo antes de cerrar.
 4. Con el visto bueno: `git commit` (uno por fase, conventional commit en español y detallado) y actualizamos `docs/fases.md`.

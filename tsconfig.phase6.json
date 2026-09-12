@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.phase5.json",
+  "include": [
+    "src/agent/**/*.ts",
+    "src/demo/**/*.ts",
+    "src/governance/**/*.ts",
+    "src/tests/**/*.test.ts",
+    "vitest.all.config.ts"
+  ],
+  "exclude": []
+}

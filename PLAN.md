@@ -20,8 +20,8 @@ Las referencias externas cambian. Este temario toma como baseline NIST AI RMF 1.
 ## Cómo se aprende (modelo de mentoría)
 
 - **Tú implementas el código de las fases**; el asistente no escribe la capa de gobernanza.
-- Por fase, el asistente prepara: objetivos de aprendizaje, conceptos y referencias, especificación (tipos, firmas y JSDoc), tests de aceptación (Vitest) y una guía de ejercicio en `docs/fase-N-*.md` con pistas escalonadas.
-- Ciclo de cada fase: leer conceptos → verificar baseline → implementar hasta que los tests de aceptación pasen → revisión con feedback → cierre con commit.
+- Por fase, el mantenedor prepara: objetivos de aprendizaje, conceptos y referencias, especificación (tipos, firmas y JSDoc), tests de aceptación (Vitest) y una guía de ejercicio en `docs/fase-N-*.md` con pistas escalonadas. El estudiante implementa el código.
+- Ciclo de cada fase: leer conceptos → verificar baseline → ejecutar `test:phaseN` y `typecheck:phaseN` → implementar hasta que los tests de aceptación pasen → revisión con feedback → cierre con commit.
 - Proyecto por fases, **estrictamente secuencial**: una fase se cierra (tests verdes + typecheck) antes de abrir la siguiente.
 - Un **commit por fase cerrada** en la rama `feature/governance-layer` (`main` guarda el scaffold).
 - Fase 0 (agente de juguete): implementada por el asistente y conservada como referencia; el estudiante debe recorrerla antes de iniciar la Fase 1.
@@ -70,6 +70,7 @@ governance-ai-agents/
    │  └─ gate/              # GovernanceGate: pipeline completo (Fase 6)
    ├─ demo/                 # escenarios ejecutables
    └─ tests/                # Vitest (tests en español, describen comportamiento)
+      └─ future/            # contratos de fases aún no activas, excluidos de la suite por defecto
 ```
 
 ## Fases
@@ -134,7 +135,8 @@ governance-ai-agents/
 
 1. Lee `START-HERE.md`, `docs/fases.md` y este `PLAN.md`.
 2. La fase pendiente trae su guía en `docs/fase-N-*.md`: **tú implementas** y pides pistas o revisión cuando quieras.
-3. Mantén `pnpm verify:baseline` verde. Al cerrar cada fase: `pnpm verify` verde → commit → actualizar el progreso del estudiante en `docs/fases.md`.
+3. Mantén `pnpm verify:baseline` verde. Al cerrar cada fase: `pnpm verify:phaseN` verde → commit → actualizar el progreso del estudiante en `docs/fases.md`.
+4. Usa `pnpm verify:all` únicamente para comprobar la suite completa cuando todos los contratos estén implementados.
 
 ## Riesgos y mitigaciones
 

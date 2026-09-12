@@ -10,9 +10,9 @@ Sigue [`START-HERE.md`](./START-HERE.md). El primer recorrido verifica el códig
 
 Estado actual:
 
-- La Fase 0 contiene una implementación de referencia que todavía debes recorrer.
-- La Fase 1 tiene especificación y tests de aceptación; su implementación es tu ejercicio.
-- La suite completa está roja a propósito hasta implementar la Fase 1.
+- La Fase 0 contiene una implementación de referencia ya recorrida.
+- La Fase 1 es la fase activa y su contrato está rojo a propósito hasta implementarla.
+- Las guías y contratos de las Fases 2–6 ya están publicados, pero sus tests se activan por separado.
 
 ## Comandos
 
@@ -21,7 +21,10 @@ Estado actual:
 | `pnpm install` | Instala las dependencias. |
 | `pnpm verify:baseline` | Verde: 11 tests, typecheck del código de referencia y demo. |
 | `pnpm test:phase1` | Rojo: muestra el contrato todavía pendiente. |
-| `pnpm verify` | Rojo hasta terminar la fase actual; después debe quedar verde. |
+| `pnpm verify:phase1` | Rojo hasta terminar la fase activa; después debe quedar verde. |
+| `pnpm verify` | Alias de `pnpm verify:phase1`. |
+| `pnpm verify:all` | Ejecuta todos los contratos; queda rojo mientras existan fases sin implementar. |
+| `pnpm test:phase2` ... `pnpm test:phase6` | Ejecutan el contrato enfocado de cada fase futura. |
 | `pnpm test:watch` | Ejecuta Vitest en modo interactivo. |
 
 Requisitos: Node.js 20 o posterior y pnpm.
